@@ -1,0 +1,21 @@
+{
+    "name": "lingyilib/middle-php-sdk",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.1.3",
+        "guzzlehttp/guzzle": "^6.2",
+        "pimple/pimple": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "lingyiLib\\MiddleSdk\\": "src"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "secure-http": false
+    }
+}
