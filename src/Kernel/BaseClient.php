@@ -72,8 +72,6 @@ class BaseClient
      * @param array  $query
      *
      * @return \Psr\Http\Message\ResponseInterface|\lingyiLib\MiddleSdk\Kernel\Support\Collection|array|object|string
-     *
-     * @throws \lingyiLib\MiddleSdk\Kernel\Exceptions\InvalidConfigException
      */
     public function httpGet(string $url, array $query = [])
     {
@@ -88,8 +86,6 @@ class BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\lingyiLib\MiddleSdk\Kernel\Support\Collection|array|object|string
      *
-     * @throws \lingyiLib\MiddleSdk\Kernel\Exceptions\InvalidConfigException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function httpPost(string $url, array $data = [])
     {
@@ -105,8 +101,6 @@ class BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\lingyiLib\MiddleSdk\Kernel\Support\Collection|array|object|string
      *
-     * @throws \lingyiLib\MiddleSdk\Kernel\Exceptions\InvalidConfigException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function httpPostJson(string $url, array $data = [], array $query = [])
     {
