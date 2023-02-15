@@ -21,14 +21,14 @@ class AccessToken extends BaseAccessToken
     protected function getCredentials(): array
     {
         $baseData = [
-            'appSecret' => $this->app['config']['secret'],
-            'channel' => $this->app['config']['channel'],
+            'appSecret' => $this->appConfig['config']['secret'],
+            'channel' => $this->appConfig['config']['channel'],
         ];
         $loginData = [
-            'authType' => $this->app['config']['auth_type'],
-            'authIdentifier' => $this->app['config']['auth_user_id']
+            'authType' => $this->appConfig['config']['auth_type'],
+            'authIdentifier' => $this->appConfig['config']['auth_user_id']
         ];
-        return $this->app['config']['is_login'] ? array_merge($baseData,$loginData) : $baseData;
+        return $this->appConfig['config']['is_login'] ? array_merge($baseData,$loginData) : $baseData;
     }
 
     /**

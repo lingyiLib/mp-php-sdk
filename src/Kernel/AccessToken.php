@@ -30,6 +30,11 @@ abstract class AccessToken implements AccessTokenInterface
     protected $app;
 
     /**
+     * @var array
+     */
+    protected $appConfig;
+
+    /**
      * @var string
      */
     protected $requestMethod = 'POST';
@@ -67,6 +72,7 @@ abstract class AccessToken implements AccessTokenInterface
     public function __construct(ServiceContainer $app)
     {
         $this->app = $app;
+        $this->appConfig = $app->getConfig();
     }
 
     /**
@@ -202,7 +208,7 @@ abstract class AccessToken implements AccessTokenInterface
         $options = [
             ('GET' === $this->requestMethod) ? 'query' : 'json' => $credentials,
         ];
-        return $this->setHttpClient($this->app['http_client'])->request($this->app['config']['url'].$this->getEndpoint(), $this->requestMethod, $options);
+        return $this->setHttpClient($this->app['http_client'])->request($this->appConfig['config']['url'].$this->getEndpoint(), $this->requestMethod, $options);
     }
 
     /**

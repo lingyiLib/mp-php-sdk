@@ -30,6 +30,11 @@ class BaseClient
      */
     protected $app;
 
+    /**
+     * @var array
+     */
+    protected $appConfig;
+
     protected $accessToken;
 
     /**
@@ -56,6 +61,7 @@ class BaseClient
     public function __construct(ServiceContainer $app, AccessTokenInterface $accessToken = null)
     {
         $this->app = $app;
+        $this->appConfig = $app->getConfig();
         $this->accessToken = $accessToken ?? $this->app['access_token'];
     }
 
@@ -144,7 +150,7 @@ class BaseClient
         if (property_exists($this, 'baseUri') && !is_null($this->baseUri)) {
             $options['base_uri'] = $this->baseUri;
         }
-        $response = $this->getHttpClient()->request($method, $this->app['config']['url'].$url, $options);
+        $response = $this->getHttpClient()->request($method, $this->appConfig['config']['url'].$url, $options);
         $response->getBody()->rewind();
         return $response->getBody()->getContents();
     }
